@@ -1,1 +1,32 @@
-// 1 hour
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>GitHub Hunting</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('#btn').click(function(){
+                console.log('clicked');
+                $.get("https://api.github.com/users/mjekugresa", displayName)
+                function displayName(data){ 
+                    console.log(data.name); 
+                    document.getElementById('name').innerHTML = data.name;
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="jumbotron text-center" style="background-color:white">
+        <h1>GitHub Hunting</h1>
+        <p>Click the button to get my GitHub name!</p>
+        <button id='btn' type="button" class="btn btn-info">CLICK</button>
+        <hr>
+        <h4 id='name'></h4> 
+    </div>
+</body>
+</html>
