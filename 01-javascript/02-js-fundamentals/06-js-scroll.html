@@ -28,7 +28,11 @@
         
         function updateText()
         {
-            el.innerHTML = el.innerHTML + words[word_counter][character_counter++];
+            var character = words[word_counter][character_counter++];
+			if (character === ' ') {
+				character = "&nbsp;" // use non-breaking space character
+			}
+			el.innerHTML = el.innerHTML + character;
             if(character_counter == words[word_counter].length+1)
             {
                 word_counter++; 	//choose a different word
