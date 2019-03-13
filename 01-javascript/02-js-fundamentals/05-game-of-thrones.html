@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Game of Thrones</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script type="text/javascript" src='http://code.jquery.com/jquery-1.10.2.min.js'></script>
+    <style>
+        .container{
+            margin-top: 30px;
+        }
+        .img-thumbnail{
+            width: 350px;
+            height: 200px;
+        }
+        h4{ display: inline-block;}
+        .sub-container{
+            width: 370px;
+            height: 270px;
+            display: inline-block;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            $('.card').hide();
+            $('#stark_house').click(function(){
+                $('.card').show();
+                $.get('https://anapioficeandfire.com/api/houses/362', house);
+                function house(data){
+                    console.log(data);
+                    document.getElementById('name').innerHTML = data.name;
+                    document.getElementById('words').innerHTML = data.words;
+                    document.getElementById('titles').innerHTML = data.titles;
+                }
+            });
+            $('#baratheon_house').click(function(){
+                $('.card').show();
+                $.get('https://anapioficeandfire.com/api/houses/17', house);
+                function house(data){
+                    console.log(data);
+                    document.getElementById('name').innerHTML = data.name;
+                    document.getElementById('words').innerHTML = data.words;
+                    document.getElementById('titles').innerHTML = data.titles;
+                }
+            });
+            $('#lannister_house').click(function(){
+                $('.card').show();
+                $.get('https://anapioficeandfire.com/api/houses/229', house);
+                function house(data){
+                    console.log(data);
+                    document.getElementById('name').innerHTML = data.name;
+                    document.getElementById('words').innerHTML = data.words;
+                    document.getElementById('titles').innerHTML = data.titles;
+                }
+            });
+            $('#targaryen_house').click(function(){
+                $('.card').show();
+                $.get('https://anapioficeandfire.com/api/houses/378', house);
+                function house(data){
+                    console.log(data);
+                    document.getElementById('name').innerHTML = data.name;
+                    document.getElementById('words').innerHTML = data.words;
+                    document.getElementById('titles').innerHTML = data.titles;
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div class="sub-container">
+            <h4>House of Stark</h4>
+            <img src="./assets/stark.jpg" alt="stark_house" class="img-thumbnail" id='stark_house'>
+        </div>       
+        <div class="sub-container">
+            <h4>House of Baratheon</h4>
+            <img src="./assets/baratheon.png" alt="baratheon_house" class="img-thumbnail" id='baratheon_house'>
+        </div>       
+        <div class="sub-container">
+            <h4>House of Lannister</h4>
+            <img src="./assets/lannister.jpg" alt="lannister_house" class="img-thumbnail" id='lannister_house'>
+        </div>
+        <div class="sub-container">
+            <h4>House of Targaryen</h4>
+            <img src="./assets/targaryen.jpg" alt="targaryen_house" class="img-thumbnail" id='targaryen_house'>  
+        </div>    
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">NAME:</h5><p id='name'></p>
+                <h5 class="card-text">WORDS:</h5><p id='words'></p>
+                <h5 class="card-text">TITLE:</h5><p id='titles'></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
