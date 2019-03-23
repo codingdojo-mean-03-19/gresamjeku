@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>DojoQuery</title>
+</head>
+<body>
+    <div class="jumbotron text-center" style="background-color:white">
+        <button id='btn1' type="button" class="btn btn-success">CLICK</button>
+        <button id='btn2' type="button" class="btn btn-success">HOVER IN/OUT</button>
+        <hr>
+        <h4 id='name'></h4> 
+    </div>        
+    <script>
+            function $Dojo(id) {
+                this.id = document.getElementById(id);
+                this.click = function (callback) {
+                    this.id.addEventListener("click", callback);
+                };
+                this.hoverin = function (hoverin) {
+                    this.id.addEventListener("mouseover", hoverin);                    
+                };
+                this.hoverout = function(hoverout) {
+                    this.id.addEventListener("mouseout", hoverout);
+                }
+                return this;
+            }
+            $Dojo("btn1").click(function() { 
+                document.getElementById('name').innerHTML= "The button was clicked!"; });
+            
+            $Dojo("btn2").hoverin(function() { 
+                document.getElementById('name').innerHTML= "The button was hovered!"; 
+            });
+
+            $Dojo('btn2').hoverout(function() {
+                document.getElementById('name').innerHTML = '';
+            })
+    </script>        
+</body>
+</html>
