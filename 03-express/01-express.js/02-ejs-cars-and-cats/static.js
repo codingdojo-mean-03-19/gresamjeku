@@ -23,9 +23,6 @@ app.get("/cats", function (request, response){
 app.get("/cars/new", function (request, response){
     response.render('form');
 })
-app.get("/css/style", function (request, response){
-    response.render('cars');
-})
 app.listen(8000, function() {
   console.log("listening on port 8000");
 })
