@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Cat Details</title>
+</head>
+<body>
+    <div class="container">
+        <h4>Kitty</h4>
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="<%= cat.img %>" alt="Card image cap">
+            <div class="card-body">
+                <h5 class="card-title">NAME: <%= cat.name %></h5>
+                <p class="card-text">FAVORITE FOOD: <%= cat.food %></p>
+                <p class="card-text">FAVORITE SLEEPING SPOT: <%- cat.sleep %></p>
+                <a href="/cats" class="btn btn-primary">Go back</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
