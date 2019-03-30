@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The great button game</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="text/javascript" src="/socket.io/socket.io.js"></script>
+    <script type='text/javascript'>
+        $(document).ready(function(){
+            var socket = io.connect();
+
+            $('#push').click(function(e){
+                socket.emit('increment', { msg:'Increment the number of times I clicked the button'});
+            });
+
+            $('#reset').click(function(e){
+                socket.emit('reset', { msg:'Reset the counter'});
+            });
+            
+            socket.on('updated_message', function(data){
+                $('#msg').html("The button has been pushed " + JSON.stringify(data.response) + " times!");
+            });
+        });
+    </script>
+</head>
+<body>
+    <section class="jumbotron text-center" style="background-color:white;">
+        <div class="container">
+          <h1 class="jumbotron-heading">Dojo Counter</h1>
+          <p class="lead text-muted">Push the button to update the count!</p>
+          <button id="push" class="btn btn-success my-2">Push the epic button</button>
+          <button id='reset' class="btn btn-danger my-2">Reset count</button>
+          <hr>
+          <h4 class="jumbotron-heading" id="msg"></h4>
+        </div>
+    </section>
+</body>
+</html>
