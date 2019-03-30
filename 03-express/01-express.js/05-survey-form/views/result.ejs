@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Survey Form/Result</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <main role="main">
+        <section class="jumbotron" style="background-color:white">
+                <div class="card">
+                        <h5 class="card-header">Submitted Information</h5>
+                        <div class="card-body">
+                            <p class="card-text bold">Thanks for submitting the form!</p>
+                            <table class="table ">
+                                <tbody>
+                                    <tr>
+                                        <td>Your Name:</td>
+                                        <td class='bold'><%= user.name %></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Dojo Location:</td>
+                                        <td class='bold'><%= user.dojo_location %></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Favorite Language:</td>
+                                        <td class='bold'><%= user.fav_language %> </td>
+                                    </tr> 
+                                    <tr>
+                                        <td>Comment:</td>
+                                        <td class='bold'><%= user.comment %></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <a href="/" class="btn btn-success">Go Back</a>
+                        </div>
+                </div>
+        </section>
+    </main>
+</body>
+</html>
