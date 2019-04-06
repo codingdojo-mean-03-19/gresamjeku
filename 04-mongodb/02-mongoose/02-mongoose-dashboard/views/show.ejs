@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Mongoose Dashboard/Show</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+</head>
+<body>
+    <section class="jumbotron" style="background-color:white;">
+        <div class="container">
+            <h4 class="jumbotron-heading">Animal with ID: <%= animal._id %></h4>
+            <p><span  class="font-weight-light">Kind:</span> <%= animal.kind %></p>
+            <p><span  class="font-weight-light">Name:</span> <%= animal.name %> </p>
+            <a class="btn btn-outline-success" href="/mongooses/edit/<%= animal._id %>" role="button">Edit</a>
+            <a class="btn btn-outline-success" href="/mongooses/destroy/<%= animal._id %>" role="button">Delete</a>
+            <a class="btn btn-outline-success" href="/" role="button">Go Back</a>
+        </div>
+    </section>
+</body>
+</html>
