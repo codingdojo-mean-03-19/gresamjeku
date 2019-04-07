@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <title>Mongoose Dashboard</title>
+</head>
+<body>
+    <div class="container">
+    <h2>Animals</h4>
+    <table class="table">
+        <thead>
+            <tr>
+            <th>ID</th>
+            <th>Kind</th>
+            <th>Name</th>
+            <th>Actions</th>
+            </tr>
+            </thead>
+            <tbody>
+                <% for (const animal of animals) { %>
+                <tr>
+                    <td><%= animal._id %></td>
+                    <td><%= animal.kind %></td>
+                    <td><%= animal.name %></td>
+                    <td>
+                        <a class="btn btn-outline-success" href="/mongooses/<%= animal._id %>" role="button">Show</a> 
+                        <a class="btn btn-outline-success" href="/mongooses/edit/<%= animal._id %>" role="button">Edit</a>
+                        <a class="btn btn-outline-success" href="/mongooses/destroy/<%= animal._id %>" role="button">Delete</a>
+                    </td>                
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+        <a class="btn btn-outline-danger" href="/mongooses/new" role="button">Add new animal</a>
+    </div>
+</body>
+</html>

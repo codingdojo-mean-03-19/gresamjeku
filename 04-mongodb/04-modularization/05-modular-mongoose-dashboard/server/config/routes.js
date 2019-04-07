@@ -1,5 +1,4 @@
-const quotes = require('../controllers/quotes.js');
-
+const quotes = require('../controllers/animals.js');
 
 module.exports = function(app){
    //homepage

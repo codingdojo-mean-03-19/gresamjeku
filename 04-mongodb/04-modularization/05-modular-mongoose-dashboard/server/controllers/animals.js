@@ -1,13 +1,5 @@
-const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/mongoosee_db',{useNewUrlParser: true});
-var AnimalsSchema = new mongoose.Schema({
-  kind: { type:String, required:true},
-  name: { type:String, required:true}
-});
-
-mongoose.model('Animal', AnimalsSchema); 
-var Animal = mongoose.model('Animal')
-
+var Animal = require('../models/animal.js');
+ 
 module.exports = {
     index: function(req, res) {
     	Animal.find({}, function(err,animals){
@@ -17,7 +9,7 @@ module.exports = {
             });
     },
     show: function(req, res, id) {
-    	Animal.findOne({_id: mongoose.Types.ObjectId(id)}, function(err,animal){
+    	Animal.findOne({_id: id}, function(err,animal){
         if(err){ 
             console.log('Could not find the animal with ID:', req.params.id);
             res.redirect('/');
@@ -29,7 +21,7 @@ module.exports = {
         });
     },
     edit: function(req, res, id) {
-    	Animal.findOne({_id: mongoose.Types.ObjectId(id)}, function(err,animal){
+    	Animal.findOne({_id: id}, function(err,animal){
         if(err){ 
             console.log('Could not find the animal with ID:', req.params.id);
             res.redirect('/');
@@ -41,7 +33,7 @@ module.exports = {
         });
     },
     update: function(req,res,id){
-      Animal.findOne({_id: mongoose.Types.ObjectId(id)}, function(err, animal){
+      Animal.findOne({_id: id}, function(err, animal){
         animal.kind = req.body.kind;
         animal.name = req.body.name;
         animal.save(function(err){
@@ -76,7 +68,7 @@ module.exports = {
         });
     },
     destroy: function(req,res,id){
-      Animal.remove({_id: mongoose.Types.ObjectId(id)}, function(err){
+      Animal.remove({_id: id}, function(err){
         if(err){ 
             console.log('Could not delete the animal with ID:', req.params.id);
         }

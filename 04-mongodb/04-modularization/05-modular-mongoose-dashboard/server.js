@@ -15,7 +15,7 @@ app.use(session({
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(flash());
 
-app.set('views', path.join(__dirname, 'views'));
+app.set('views', path.join(__dirname, './client/views'));
 app.set('view engine', 'ejs');
 
 require('./server/config/routes.js')(app)
