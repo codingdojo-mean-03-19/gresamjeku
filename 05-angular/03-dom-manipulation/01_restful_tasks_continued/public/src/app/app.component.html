@@ -3,8 +3,9 @@
   <h1>Restful Tasks API</h1>
   <h3>All the tasks:</h3>
   <ul>
-    <p *ngFor="let task of tasks">{{task}}</p>
+    <li *ngFor="let task of tasks">{{task}}</li>
   </ul>
+  <button (click)="allTasks()" >Get all tasks</button>
 </div>
 
 

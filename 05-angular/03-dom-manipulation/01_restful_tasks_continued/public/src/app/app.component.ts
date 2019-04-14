@@ -19,4 +19,10 @@ export class AppComponent implements OnInit{
       this.tasks = data['tasks'];
     })
   }
+
+  allTasks(tasks): void { 
+    console.log(`Click event is working`);
+    let observable = this._httpService.postTasks({data: tasks});
+    observable.subscribe(data => console.log("Got our data!", data));
+  }
 }

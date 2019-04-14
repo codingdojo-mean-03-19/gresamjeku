@@ -7,4 +7,5 @@ import { HttpClient } from '@angular/common/http';
 export class HttpService {
   constructor(private _http: HttpClient){ }
   getTasks(){ return this._http.get('/'); }
+  postTasks(tasks) { return this._http.post('/', tasks)}
 }
