@@ -1,0 +1,19 @@
+<div class="container" *ngIf="showMe">
+  <h2>Edit task</h2>
+  {{ task.value | json }}
+  <form #taskForm='ngForm'>
+    <div class="form-group row">
+      <label for="title" class="col-sm-2 col-form-label">Title:</label>
+      <div class="col-sm-10">
+        <input type="text" name='title' class="form-control" id="title" [(ngModel)]="task.title" required>
+      </div>
+    </div>
+    <div class="form-group row">
+      <label for="desc" class="col-sm-2 col-form-label">Description:</label>
+      <div class="col-sm-10">
+        <input type="text" name='desc' class="form-control" id="desc" [(ngModel)]='task.desc'>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-success float-left shadow rounded" style="margin-right:10px;">Update task</button>
+    </form>
+</div>

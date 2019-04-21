@@ -1,0 +1,28 @@
+<app-task-new (createTask)='onCreate($event)'></app-task-new>
+<div class="container" [ngStyle]="{'margin-top':'20px'}">
+  <h4 class="jumbotron-heading">Tasks list</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let task of tasks' (click)='onSelect(task)'>
+        <th scope="row">{{ task._id }}</th>
+        <td>{{ task.title }}</td>
+        <td>{{ task.desc }}</td>
+        <td>
+          <button type="button" class="btn btn-outline-success" (click)='onDelete($event, task)' [ngStyle]="{'margin-right':'4px'}">Delete</button> 
+          <button type="button" class="btn btn-outline-success" (click)='onEdit($event, task)'>Edit</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<hr>
+<app-task-details [task]='selectedTask'></app-task-details>
+<app-task-edit [showMe]="clicked"></app-task-edit>
