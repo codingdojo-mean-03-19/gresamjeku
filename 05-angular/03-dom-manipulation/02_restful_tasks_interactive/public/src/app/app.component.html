@@ -1,0 +1,19 @@
+<div class="container">
+  <h4 class="jumbotron-heading">Tasks list</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let task of tasks'>
+        <th scope="row">{{ task._id }}</th>
+        <td>{{ task.title }}</td>
+        <td>{{ task.desc }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
