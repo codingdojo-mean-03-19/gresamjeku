@@ -1,0 +1,21 @@
+<div class="container" [ngStyle]="{'margin-top':'20px'}">
+  <h4 class="jumbotron-heading">Tasks list</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Title</th>
+        <th scope="col">Description</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let task of tasks' (click)='onSelect(task)'>
+        <th scope="row">{{ task._id }}</th>
+        <td>{{ task.title }}</td>
+        <td>{{ task.desc }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<hr>
+<app-task-show [task]='selectedTask'></app-task-show>
