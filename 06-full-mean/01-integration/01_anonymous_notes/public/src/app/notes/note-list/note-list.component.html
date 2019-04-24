@@ -1,0 +1,17 @@
+<div class="container" [ngStyle]="{'margin-top':'20px'}">
+  <h4 class="jumbotron-heading">ALL NOTES</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Content</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let note of notes' (click)='onSelect(note)'>
+        <td>{{ note.content }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<hr>
+

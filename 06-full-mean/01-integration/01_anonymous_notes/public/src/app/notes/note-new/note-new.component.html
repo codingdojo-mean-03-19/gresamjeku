@@ -1,0 +1,15 @@
+<form (submit)='onSubmit($event, noteForm)' #noteForm='ngForm'>
+  <div class="form-group">
+    <label for="content">Content:</label>
+    <input type="text" class="form-control" id="content" name="content" [(ngModel)]='note.content' required>
+  </div>
+  <button type="submit" class="btn btn-success" [disabled]='noteForm.invalid'>Add</button>
+</form>
+
+<hr>
+      
+ 
+  
+  
+  
+  
