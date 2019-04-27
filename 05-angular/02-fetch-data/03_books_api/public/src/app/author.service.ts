@@ -17,6 +17,6 @@ export class AuthorService {
   }
 
   getBooks(){
-    return this.http.get('/authors/books');
+    return this.http.get('/books');
   }
 }

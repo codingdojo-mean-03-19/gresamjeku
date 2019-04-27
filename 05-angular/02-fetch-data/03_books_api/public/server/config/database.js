@@ -4,7 +4,7 @@ const fs = require('fs');
 
 const modelsPath = path.join(__dirname, '../models');
 
-mongoose.connect('mongodb://localhost/authors_books', { useCreateIndex:true, useNewUrlParser:true});
+mongoose.connect('mongodb://localhost/authorsBooks', { useCreateIndex:true, useNewUrlParser:true});
 
 mongoose.connection.once('connected', () => console.log('Connected to MongoDB'));
 

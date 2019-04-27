@@ -14,11 +14,11 @@ export class AppComponent {
   books = [];
 
   ngOnInit(){ 
-    this.getAll();
+    this.getAuthors();
     this.getBooks();
   }
   
-  getAll(){
+  getAuthors(){
     let observable = this.authorService.getAuthors();
     observable.subscribe(data => {
       console.log('Got our authors!', data);
@@ -33,4 +33,5 @@ export class AppComponent {
       this.books = data['books'];
     });
   }
+  
 }

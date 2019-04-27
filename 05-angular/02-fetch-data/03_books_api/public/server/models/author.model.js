@@ -25,27 +25,4 @@ const AuthorsSchema = new Schema({
     }]    
 }, {timestamps:true});
 
-const BooksSchema = new Schema({
-    title:{
-        type: String,
-        trim: true,
-        required: [true, 'Title is required'],
-        minlength: [2, 'More than 1 char needed']
-    },
-    year: {
-        type: Number,
-        trim: true,
-        minlength: [2, 'More than 1 char needed']
-    },
-    author: {
-        type: Schema.Types.ObjectId,
-        ref: 'Author',
-        required: true
-    }
-})
-
-const Author = mongoose.model('Author', AuthorsSchema);
-const Book = mongoose.model('Book', BooksSchema);
-
-//module.exports = mongoose.model('Book', BooksSchema);
-module.exports = [Author, Book];
+module.exports = mongoose.model('Author', AuthorsSchema);
