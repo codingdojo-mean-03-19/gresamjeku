@@ -20,8 +20,10 @@
       </tr>
     </tbody>
   </table>
-  <button type="button" class="btn btn-outline-success" [routerLink]="['authors/new']">Add author</button>
+  <button type="button" class="btn btn-outline-success" [routerLink]="['authors/new']" (createAuthor)='onCreate($event)'>Add author</button>
+
 </div>
+
 <hr>
 
 <!-- <app-author-show [author]='selectedAuthor'></app-author-show> 

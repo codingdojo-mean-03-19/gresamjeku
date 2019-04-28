@@ -1,6 +1,6 @@
-<div class="container" *ngIf='author'>
+<div class="container">
   <h4 class="jumbotron-heading">Details for selected author</h4>
-  <p><span  class="font-weight-light">ID:</span> {{ author._id }}</p>
-  <p><span  class="font-weight-light">First name:</span> {{ author.firstName }}</p>
-  <p><span  class="font-weight-light">Last name:</span> {{ author.lastName }}</p>
+  <p><span  class="font-weight-light">ID:</span> {{ author?._id }}</p>
+  <p><span  class="font-weight-light">First name:</span> {{ author?.firstName }}</p>
+  <p><span  class="font-weight-light">Last name:</span> {{ author?.lastName }}</p>
 </div>

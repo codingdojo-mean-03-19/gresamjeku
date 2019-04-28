@@ -1,7 +1,10 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { Author } from '../../models';
 import { NgForm } from '@angular/forms';
+
+import { AuthorService } from '../../services';
 
 @Component({
   selector: 'app-author-new',
@@ -14,7 +17,7 @@ export class AuthorNewComponent implements OnInit {
   @Output()
   createAuthor = new EventEmitter<Author>();
 
-  constructor() { }
+  constructor(private readonly authorService: AuthorService, private readonly router: Router) { }
 
   ngOnInit() { }
 
@@ -22,8 +25,13 @@ export class AuthorNewComponent implements OnInit {
     event.preventDefault();
     
     console.log('Submitting', this.author);
-    this.createAuthor.emit(this.author);
-    this.author = new Author();
+    this.authorService.createAuthor(this.author)
+      .subscribe(author => {
+        console.log('New author', author);
+        this.router.navigateByUrl('/');
+      })
+    //this.createAuthor.emit(this.author);
+    //this.author = new Author();
     
     form.reset();
   }

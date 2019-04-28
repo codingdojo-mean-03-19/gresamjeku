@@ -9,7 +9,7 @@ import { Author } from '../models';
 })
 
 export class AuthorService {
-  private readonly base = '/authors';
+  private readonly base = 'http://localhost:8000/api/authors';
   constructor(private readonly http: HttpClient) { }
 
   getAuthors(): Observable<Author[]> {
@@ -19,13 +19,13 @@ export class AuthorService {
     console.log(id);
     return this.http.get<Author>(`${this.base}/${id}`);
   }
-  createAuthor(Author: Author): Observable<Author>{
-    return this.http.post<Author>(this.base, Author);
+  createAuthor(author: Author): Observable<Author>{
+    return this.http.post<Author>(this.base, author);
   }
   removeAuthor(id: String): Observable<Author> {
     return this.http.delete<Author>(`${this.base}/${id}`);
   }
-  updateAuthor(Author: Author): Observable<Author> {
-    return this.http.put<Author>(`${this.base}/${Author._id}`, Author);
+  updateAuthor(author: Author): Observable<Author> {
+    return this.http.put<Author>(`${this.base}/${author._id}`, author);
   }
 }
