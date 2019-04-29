@@ -1,0 +1,39 @@
+<div class="jumbotron" [ngStyle]="{'background-color':'white'}">
+  <h3>New Player</h3>     
+  <form (submit)='onSubmit($event,playerForm)' #playerForm='ngForm'>
+    <div class="form-group">
+      <label for="fname">First name:</label>
+      <input type="text" class="form-control" id="fname" name="firstName" 
+      [(ngModel)]='player.firstName' 
+      required
+      minlength="2"
+      #firstName ='ngModel'>
+
+      <div *ngIf='(firstName.touched) && firstName.errors '>
+        <div *ngIf='firstName.errors.required' class="alert alert-danger" role="alert">
+          You must enter a first name!
+        </div>
+        <div *ngIf='firstName.errors.minlength' class="alert alert-danger" role="alert">
+          First name must be at least {{ firstName.errors.minlength.requiredLength }} characters!
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="lname">Last name:</label>
+      <input type="text" class="form-control" id="lname" name="lastName" [(ngModel)]='player.lastName'>
+    </div>
+    <div class="form-group">
+      <label for="position">Position:</label>
+      <input type="text" class="form-control" id="position" name="position" [(ngModel)]='player.position'>
+    </div>
+    <button type="submit" class="btn btn-success" [disabled]='playerForm.invalid' [ngStyle]="{'margin-right':'4px'}">Add</button>
+  </form>
+</div>
+<hr>
+      
+ 
+  
+  
+  
+
+

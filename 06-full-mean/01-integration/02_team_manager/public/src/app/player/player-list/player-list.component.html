@@ -1,0 +1,25 @@
+<div class="container" [ngStyle]="{'margin-top':'20px'}">
+  <h4 class="jumbotron-heading">Players list</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Player Name</th>
+        <th scope="col">Prefered Position</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let player of players'>
+        <td>{{ player.firstName }} {{ player.lastName }}</td>
+        <td>{{ player.position }}</td>
+        <td>
+          <button type="button" class="btn btn-danger" (click)='onDelete($event,player)'>Delete</button> 
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="button" class="btn btn-outline-success" [routerLink]="['/players/new']" (createPlayer)='onCreate($event)'>Add player</button>
+
+</div>
+
+<hr>

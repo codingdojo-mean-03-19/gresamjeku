@@ -1,0 +1,40 @@
+<div class="container" [ngStyle]="{'margin-top':'20px'}">
+  <h4 class="jumbotron-heading">Players list</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Player Name</th>
+        <th scope="col">Prefered Position</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let player of players'>
+        <td>{{ player.firstName }} {{ player.lastName }}</td>
+        <td>{{ player.position }}</td>
+        <td>
+          <button 
+            type="button" 
+            [ngStyle]="{'margin-right':'4px'}" 
+            (click)="onPlaying($event, player)"
+            [ngClass]="player.status=='Playing' ? 'btn btn-success' : 'btn btn-outline-secondary'">Playing
+          </button>
+          <button 
+            type="button" 
+            [ngStyle]="{'margin-right':'4px'}" 
+            (click)="onNotPlaying($event,player) "
+            [ngClass]="player.status=='Not Playing' ? 'btn btn-danger' : 'btn btn-outline-secondary'">Not Playing
+          </button> 
+          <button 
+            type="button" 
+            [ngStyle]="{'margin-right':'4px'}" 
+            (click)="onUndecided($event,player) "
+            [ngClass]="player.status=='Undecided' ? 'btn btn-warning' : 'btn btn-outline-secondary'">Undecided
+          </button>  
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<hr>
