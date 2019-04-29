@@ -29,10 +29,7 @@ export class AuthorNewComponent implements OnInit {
       .subscribe(author => {
         console.log('New author', author);
         this.router.navigateByUrl('/');
-      })
-    //this.createAuthor.emit(this.author);
-    //this.author = new Author();
-    
+      })  
     form.reset();
   }
 

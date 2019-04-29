@@ -53,9 +53,7 @@ export class AuthorListComponent implements OnInit, OnDestroy {
     })
   }
 
-  onEdit(event: Event, author: Author){
-    event.stopPropagation();
-    this.clicked = this.clicked === true ? false : true;
+  onEdit(author: Author){
     this.authorService.updateAuthor(author).subscribe(updateAuthor => {
       console.log('updated', updateAuthor);
       //this.tasks = this.tasks.

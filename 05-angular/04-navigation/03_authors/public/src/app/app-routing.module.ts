@@ -15,6 +15,10 @@ const routes: Routes = [
   {
     path: 'authors/:author_id',
     component: fromAuthors.AuthorShowComponent,
+  },
+  {
+    path: 'authors/edit/:author_id',
+    component: fromAuthors.AuthorEditComponent
   }
 ];
 

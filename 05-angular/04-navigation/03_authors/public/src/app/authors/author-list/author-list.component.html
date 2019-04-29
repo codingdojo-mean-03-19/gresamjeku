@@ -15,7 +15,7 @@
         <td>{{ author.lastName }}</td>
         <td>
           <button type="button" class="btn btn-outline-success" (click)='onDelete($event, author)' [ngStyle]="{'margin-right':'4px'}">Delete</button> 
-          <button type="button" class="btn btn-outline-success" (click)='onEdit($event, author)'>Edit</button>
+          <button type="button" class="btn btn-outline-success" [routerLink]="['authors/edit', author._id]" (editAuthor)='onEdit($event)'>Edit</button>
         </td>
       </tr>
     </tbody>
