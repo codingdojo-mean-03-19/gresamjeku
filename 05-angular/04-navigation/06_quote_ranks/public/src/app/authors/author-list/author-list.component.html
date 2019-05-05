@@ -13,7 +13,7 @@
         <td>{{ author.firstName }}</td>
         <td>{{ author.lastName }}</td>
         <td>
-          <button type="button" class="btn btn-outline-success" [ngStyle]="{'margin-right':'4px'}" [routerLink]="['quotes/:author._id']">View Quotes</button> 
+          <button type="button" class="btn btn-outline-success" [ngStyle]="{'margin-right':'4px'}" [routerLink]="['quotes', author._id]">View Quotes</button> 
           <button type="button" class="btn btn-outline-success" (click)='onEdit($event, author)'>Edit</button>
         </td>
       </tr>

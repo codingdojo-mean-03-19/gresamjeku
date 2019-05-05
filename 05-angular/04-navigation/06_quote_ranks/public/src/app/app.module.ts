@@ -6,16 +6,18 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+
 import * as fromAuthors from './authors';
+import * as fromQuotes from './quotes';
+
 import { NavComponent } from './nav/nav.component';
-import { QuoteNewComponent } from './authors/quote-new/quote-new.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ...fromAuthors.components,
+    ...fromQuotes.components,
     NavComponent,
-    QuoteNewComponent
   ],
   imports: [
     BrowserModule,

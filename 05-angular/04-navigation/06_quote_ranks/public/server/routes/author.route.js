@@ -1,10 +1,12 @@
 const router = require('express').Router();
-const { authorController } = require('../controllers');
+const { authorController, quoteController } = require('../controllers');
 
 module.exports = router
     .get('/', authorController.index)
     .post('/', authorController.create)
-    .post('/quotes/:author_id', authorController.createQuote)
     .get('/:author_id', authorController.show)
     .put('/:author_id', authorController.update)
-    .delete('/:author_id', authorController.destroy);
+    .delete('/:author_id', authorController.destroy)
+    
+    .get('/quotes/:author_id', quoteController.index)
+    .post('/quotes/:author_id', quoteController.create);

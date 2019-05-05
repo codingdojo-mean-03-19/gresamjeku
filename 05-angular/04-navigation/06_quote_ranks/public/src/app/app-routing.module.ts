@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import * as fromAuthors from './authors';
+import * as fromQuotes from './quotes';
+
 const routes: Routes = [
   {
     path: '',
@@ -13,7 +15,11 @@ const routes: Routes = [
   },
   {
     path: 'quotes/:author_id',
-    component: fromAuthors.QuoteNewComponent
+    component: fromQuotes.QuoteListComponent
+  },
+  {
+    path: 'quotes_new/:author_id',
+    component: fromQuotes.QuoteNewComponent
   }
 ];
 

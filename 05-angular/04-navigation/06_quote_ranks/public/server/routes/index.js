@@ -1,13 +1,10 @@
 const catchAllRouter = require('./catch-all.route');
 
 const router = require('express').Router();
-const authorRouter = require('./author.route');
-
 const api = require('express').Router();
 
-module.exports = router.use('/authors', authorRouter);
+const authorRouter = require('./author.route');
 
-//module.exports = api.use('/api', router).use(catchAllRouter);
+router.use('/authors', authorRouter);
 
-//api.use('/api', router);
-//router.use('/authors', authorRouter).use(catchAllRouter);
+module.exports = api.use('/api', router).use(catchAllRouter);

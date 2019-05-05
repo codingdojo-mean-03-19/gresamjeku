@@ -1,0 +1,31 @@
+<div class="container" [ngStyle]="{'margin-top':'20px'}">
+  <h4 class="jumbotron-heading">Quotes by {{ author?.firstName}} {{ author?.lastName }}</h4>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Content</th>
+        <th scope="col">Votes</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor='let quote of author?.quotes'>
+        <td>
+          {{ quote.content }}
+        </td>
+        <td>
+          <button type="button" class="btn btn-outline-success" [ngStyle]="{'margin-right':'4px'}" >Vote up</button> 
+          <button type="button" class="btn btn-outline-success" [ngStyle]="{'margin-right':'4px'}" >Vote down</button> 
+        </td>
+        <td>
+          <button type="button" class="btn btn-outline-success" >Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+  <button type="button" class="btn btn-outline-success" [ngStyle]="{'margin-right':'4px'}" [routerLink]="['/quotes_new', author?._id]" (createQuote)='onCreate($event)'>Add quote</button>
+  <button type="button" class="btn btn-success" [routerLink]="['/quotes', author?._id]">Go back</button>
+</div>
+<hr>
+
+

@@ -1,0 +1,19 @@
+<h3>New quote by {{ author?.firstName}} {{ author?.lastName }} </h3>     
+
+<form (submit)='onSubmit($event,quoteForm,author?._id)' #quoteForm='ngForm'>
+  <div class="form-group">
+    <label for="quote">Quote:</label>
+    <input type="text" class="form-control" id="quote" name="quote" [(ngModel)]='author?.quotes.content' required>
+  </div>
+  
+  <button type="submit" class="btn btn-success" [disabled]='quoteForm.invalid' [ngStyle]="{'margin-right':'5px'}">Add</button>
+  <button type="button" class="btn btn-outline-success" [routerLink]="['quotes', author?._id]">Go back</button>
+</form>
+
+<hr>
+      
+ 
+  
+  
+  
+  
